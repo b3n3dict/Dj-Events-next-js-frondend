@@ -1,4 +1,5 @@
-import Layout from "../components/Layout"
+import Layout from "@/components/Layout"
+import Showcase from "@/components/Showcase"
 
 export default function Home() {
   return (
