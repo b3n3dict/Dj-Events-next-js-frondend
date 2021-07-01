@@ -9,6 +9,7 @@ const SearchBar = () => {
     const onSubmitHandler=(e)=>{
        e.preventDefault()
        router.push(`/events/search?term=${value}`)
+       setValue('')
     }
     return (
         <form onSubmit={onSubmitHandler}>

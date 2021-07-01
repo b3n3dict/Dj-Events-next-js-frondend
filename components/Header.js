@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from '@/styles/Header.module.css'
 import Image from 'next/image'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch,FaPlusCircle } from 'react-icons/fa'
 import SearchBar from './SearchBar'
 
 export default function Header() {
@@ -26,8 +26,8 @@ export default function Header() {
                     </Link>
                     </li>
                     <li>
-                    <Link href="/events">
-                        <a>Events</a>
+                    <Link href="/events/add">
+                        <a>Add Event <FaPlusCircle/> </a>
                     </Link>
                     </li>
                    
