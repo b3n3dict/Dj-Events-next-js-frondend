@@ -5,13 +5,16 @@ import { useEffect,useState,useContext } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/AuthForm.module.css'
 import Layout from '@/components/Layout'
+import AuthContext from '@/context/AuthContext'
  const LoginPage = () => {
      const [email,setEmail] = useState('')
      const [password,setPassword] = useState('')
+
+     const {login,error} = useContext(AuthContext)
+     
      const onSubmitHandler = (e)=>{
          e.preventDefault()
-         console.log('>>email:',email)
-         console.log('>>pass:',password)
+         login({email,password})
      }
     return (
         <Layout title="User Login">

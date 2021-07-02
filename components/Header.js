@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import styles from '@/styles/Header.module.css'
 import Image from 'next/image'
+import AuthContext from '@/context/AuthContext'
+import { useContext } from 'react'
 import { FaSearch,FaPlusCircle,FaSignInAlt,FaSignOutAlt } from 'react-icons/fa'
 import SearchBar from './SearchBar'
 
 export default function Header() {
+    const {user,logout} = useContext(AuthContext)
     return (
         <header className={styles.header}>
          <div className={styles.logo}>
@@ -25,16 +28,32 @@ export default function Header() {
                         <a>Events</a>
                     </Link>
                     </li>
-                    <li>
+                    {user ?
+                     <>
+                     <li>
                     <Link href="/events/add">
                         <a>Add Event <FaPlusCircle/> </a>
                     </Link>
                     </li>
+                     <li>
+                    <Link href="/account/dashboard">
+                        <a>Dashboard </a>
+                    </Link>
+                    </li>
+                     <li>
+                         <button onClick={()=>logout} className="btn">
+
+                         <FaSignOutAlt/> LogOut
+                         </button>
+                     </li>
+                     </> : <>
                     <li>
                     <Link href="/account/login">
                         <a className={styles.btnLogin}>Login <FaSignInAlt/> </a>
                     </Link>
                     </li>
+                      </>}
+                   
                    
                 </ul>
             </nav>

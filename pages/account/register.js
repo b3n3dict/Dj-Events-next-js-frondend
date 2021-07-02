@@ -5,19 +5,20 @@ import { useEffect,useState,useContext } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/AuthForm.module.css'
 import Layout from '@/components/Layout'
+import AuthContext from '@/context/AuthContext'
  const RegisterPage = () => {
      const [email,setEmail] = useState('')
      const [password,setPassword] = useState('')
      const [confirmPassword,setConfirmPassword] = useState('')
-     const [userName,setUserName] = useState('')
-
+     const [username,setUserName] = useState('')
+    const {register,error} = useContext(AuthContext)
      const onSubmitHandler = (e)=>{
          e.preventDefault()
         if(password !== confirmPassword){
             toast.error(`Password Do not match!`)
             return
         }
-        console.log(userName,email,password)
+       register({username,email,password})
      }
     return (
         <Layout title="User Registration">
@@ -27,7 +28,7 @@ import Layout from '@/components/Layout'
               <form onSubmit={onSubmitHandler}>
               <div>
                       <label htmlFor="username">User Name:</label>
-                       <input type="text" id="username" value={userName} onChange={(e)=>setUserName(e.target.value)} />
+                       <input type="text" id="username" value={username} onChange={(e)=>setUserName(e.target.value)} />
                   </div>
                   <div>
                       <label htmlFor="email">Email Address:</label>
