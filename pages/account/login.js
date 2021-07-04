@@ -11,10 +11,15 @@ import AuthContext from '@/context/AuthContext'
      const [password,setPassword] = useState('')
 
      const {login,error} = useContext(AuthContext)
+
+     useEffect(()=>{
+         error && toast.error(error)
+     })
      
      const onSubmitHandler = (e)=>{
          e.preventDefault()
          login({email,password})
+         
      }
     return (
         <Layout title="User Login">

@@ -53,3 +53,8 @@
   color: white;
   opacity: 1; /* Firefox */
 }
+@media screen and (max-width:1050px) {
+  .search_input{
+    width: 220px;
+  } 
+}

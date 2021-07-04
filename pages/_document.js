@@ -10,6 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
+        <link rel="shortcut icon" href="../logo.png" />
         <body>
           <Main />
           <NextScript />
