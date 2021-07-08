@@ -41,7 +41,7 @@ export default function Header() {
                     </Link>
                     </li>
                      <li>
-                         <button onClick={()=>logout} className="btn">
+                         <button onClick={()=>logout()} className="btn">
 
                          <FaSignOutAlt/> LogOut
                          </button>
