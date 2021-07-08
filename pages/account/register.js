@@ -12,6 +12,8 @@ import AuthContext from '@/context/AuthContext'
      const [confirmPassword,setConfirmPassword] = useState('')
      const [username,setUserName] = useState('')
     const {register,error} = useContext(AuthContext)
+    useEffect(()=>error && toast.error(error))
+    
      const onSubmitHandler = (e)=>{
          e.preventDefault()
         if(password !== confirmPassword){
