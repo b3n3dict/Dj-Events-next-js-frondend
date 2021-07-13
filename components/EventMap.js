@@ -14,20 +14,20 @@ export default function EventMap({ evt }) {
     zoom: 12,
   });
   useEffect(() => {
-    Geocode.setApiKey(process.env.NEXT_PUBLIC_GOOGLEMAP_API_TOKEN);
-    // Get latitude & longitude from address.
-    Geocode.fromAddress(evt.address).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        setLat(lat);
-        setLng(lng);
-        setViewport({ ...viewport, latitude: lat, longitude: lng });
-        setLoading(false);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    // Geocode.setApiKey(process.env.NEXT_PUBLIC_GOOGLEMAP_API_TOKEN);
+    // // Get latitude & longitude from address.
+    // Geocode.fromAddress(evt.address).then(
+    //   (response) => {
+    //     const { lat, lng } = response.results[0].geometry.location;
+    //     setLat(lat);
+    //     setLng(lng);
+    //     setViewport({ ...viewport, latitude: lat, longitude: lng });
+    //     setLoading(false);
+    //   },
+    //   (error) => {
+    //     console.error(error);
+    //   }
+    // );
   }, []);
 
   if (loading) return false;

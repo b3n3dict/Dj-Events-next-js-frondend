@@ -4,7 +4,7 @@ import { parseCookies } from "@/helpers/index";
 import { API_URL } from "@/config/index";
 import styles from "@/styles/Dashboard.module.css";
 import { useRouter } from "next/router";
-export default function dashboard({ events, token }) {
+export default function Dashboard({ events, token }) {
   const router = useRouter();
   const deleteEvent = async (id) => {
     if (confirm("Are you sure?")) {
